@@ -5,9 +5,10 @@ dependencies:
     - sudo apt-get update
     - sudo apt-get install puppet-common
     - sudo puppet module install puppetlabs-mysql
+    - sudo puppet module install puppetlabs-apt
     - git clone https://github.com/tubemogul/puppet-powerdns.git
     - sudo mv puppet-powerdns /etc/puppet/modules/powerdns
-    - sudo puppet module install puppetlabs-apt
+    - sudo puppet module install  puppetlabs/concat
     - sudo puppet apply ~/puppet-powerdns-4/pdns.pp
     - sudo rm /etc/powerdns/pdns.d/pdns.simplebind.conf
     - mysql -u pdns -ppowerdns pdns < ~/puppet-powerdns-4/pdns.sql
