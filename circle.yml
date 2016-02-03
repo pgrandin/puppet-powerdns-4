@@ -8,3 +8,9 @@ dependencies:
     - sudo puppet module install jmkeyes-powerdns
     - sudo puppet module install puppetlabs-apt
     - sudo puppet apply ~/puppet-powerdns-4/pdns.pp
+    - sudo rm /etc/powerdns/pdns.d/pdns.simplebind.conf
+    - mysql -u pdns -ppowerdns pdns < ~/puppet-powerdns-4/pdns.sql
+test:
+  post:
+    - /usr/sbin/pdns_server --version
+    - curl -H 'X-API-Key: changeme' http://127.0.0.1:8081/api/v1/servers/localhost/zones
