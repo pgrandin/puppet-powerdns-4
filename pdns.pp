@@ -37,6 +37,7 @@ mysql::db { 'pdns':
 class { '::powerdns': 
   enable_api => 'yes',
   api_key    => 'changeme',
+  webserver  => 'yes',
   local_port => 10053,
   require    => [Apt::Source['powerdns'], Mysql::Db['pdns']],
 }
