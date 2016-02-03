@@ -2,7 +2,8 @@ node default {
 
 apt::source { 'powerdns':
   comment  => '4.x powerdns repository',
-  location => 'http://repo.powerdns.com/ubuntu trusty-auth-master',
+  location => 'http://repo.powerdns.com/ubuntu',
+  release  => 'trusty-auth-master',
   repos    => 'main',
   pin      => '600',
   key      => {
