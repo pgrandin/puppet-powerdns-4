@@ -14,4 +14,4 @@ dependencies:
     - mysql -u pdns -ppowerdns pdns < ~/puppet-powerdns-4/pdns.sql
 test:
   post:
-    - bash api_test.sh
+    - bash api_tests.sh
