@@ -33,7 +33,9 @@ mysql::db { 'pdns':
 }
 
 # Install PowerDNS:
-class { '::powerdns': }
+class { '::powerdns': 
+  require  => [Apt::Source['powerdns', Mysql::Db['pdns']],
+}
 
 class { '::powerdns::backend::gmysql':
   host     => '127.0.0.1',
