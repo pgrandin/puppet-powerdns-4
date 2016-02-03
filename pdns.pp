@@ -20,6 +20,7 @@ apt::source { 'powerdns':
 class { '::mysql::server':
   root_password           => 'strongpassword',
   remove_default_accounts => true,
+  package_ensure          => '5.6',
   override_options        => $override_options
 }
 
