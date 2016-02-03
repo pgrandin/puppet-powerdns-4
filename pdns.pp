@@ -16,12 +16,15 @@ apt::source { 'powerdns':
   },
 }
 
-
 class { '::mysql::server':
   root_password           => 'strongpassword',
   remove_default_accounts => true,
-  package_ensure          => '5.6',
+  package_name            => 'mysql-server-5.6',
   override_options        => $override_options
+}
+
+class { '::mysql::client':
+  package_name            => 'mysql-client-5.6',
 }
 
 mysql::db { 'pdns':
