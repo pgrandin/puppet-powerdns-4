@@ -35,7 +35,10 @@ mysql::db { 'pdns':
 
 # Install PowerDNS:
 class { '::powerdns': 
-  require  => [Apt::Source['powerdns'], Mysql::Db['pdns']],
+  enable_api => 'yes',
+  api_key    => 'changeme',
+  local_port => 10053,
+  require    => [Apt::Source['powerdns'], Mysql::Db['pdns']],
 }
 ->
 class { '::powerdns::backend::gmysql':
