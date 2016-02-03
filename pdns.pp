@@ -8,7 +8,7 @@ apt::source { 'powerdns':
   pin      => '600',
   key      => {
     'id'     => 'D47975F8DAE32700A563E64FFF389421CBC8B383',
-    'server' => 'subkeys.pgp.net',
+    'source' => 'http://repo.powerdns.com/CBC8B383-pub.asc',
   },
   include  => {
     'src' => false,
