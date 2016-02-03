@@ -12,6 +12,7 @@ dependencies:
     - sudo puppet apply ~/puppet-powerdns-4/pdns.pp
     - sudo rm /etc/powerdns/pdns.d/pdns.simplebind.conf
     - mysql -u pdns -ppowerdns pdns < ~/puppet-powerdns-4/pdns.sql
+    - pip install requests
 test:
   post:
-    - bash api_tests.sh
+    - python api_tests.py
